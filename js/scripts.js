@@ -14,13 +14,20 @@ var numsToWords = function (inputNumber) {
     return singleDigits[inputNumber];  
   } else if (inputNumber < 20) {
       return teenDigits[inputNumber];
+  } else if (inputNumber < 100 && inputNumber % 10 === 0) {
+      return tensDigits[integerArray[0]+0];  
   } else if (inputNumber < 100) {
-      return tensDigits[integerArray[0]+0] + " " + singleDigits[integerArray[1]];  
+      return tensDigits[integerArray[0]+0] + " " + singleDigits[integerArray[1]];
+  } else if (inputNumber < 1000 && inputNumber % 100 === 0 && inputNumber % 10 === 0) {
+    return singleDigits[integerArray[0]] + " " + hundredDigit;
+  } else if (inputNumber < 1000 && inputNumber % 10 === 0) {
+    return singleDigits[integerArray[0]] + " " + hundredDigit + " " + tensDigits[integerArray[1]+0];
   } else if (inputNumber < 1000) {
-    return singleDigits[integerArray[0]] + " " + hundredDigit + " " + tensDigits[integerArray[1]+0] + " " + singleDigits[integerArray[2]];
-
-
-
-
-  }
+    return singleDigits[integerArray[0]] + " " + hundredDigit + " " + tensDigits[integerArray[1]+0] + " " + singleDigits[integerArray[2]];    
+  } 
 };
+
+
+
+
+
